@@ -1,18 +1,18 @@
 # Bot Telegram
 
-##Indice
+## Indice
 
-1)Dispatcher (comandos que devuelven mensajes , fotos ...)
-2)Echo (repite mensajes)
-3)Polls (encuestas)
+1)Dispatcher (comandos que devuelven mensajes , fotos ...)  
+2)Echo (repite mensajes)  
+3)Polls (encuestas)  
 
-##Echo
+## Echo
 
 ![echo](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/echo.PNG)  
 
 ![echo_ver](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/strat.PNG) 
 
-##Dispatcher
+## Dispatcher
 Esta clase envía todo tipo de actualizaciones a sus controladores registrados.
 
 ![Dispatcher](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/dispatcher.PNG)
@@ -48,7 +48,7 @@ perdon por esto
 
 
 
-##Polls
+## Polls
 Las polls son encuestas que permiten elegir opciones o contestar a preguntas. Existen dos tipos de encuestas, encuestas en 
 las que se le define una respuesta correcta y encuestas que permiten repuestas múltiples. En estas respuestas se ve el porcentaje
 de opciones seleccionadas y los usuarios que seleccionaron las opciones.
@@ -60,9 +60,9 @@ Encuesta de multiples opciones
 ![codigo1](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/codigoencuesta2.PNG)
 perdon por esto también...
 
-##Funcion del bot
+## Funcion del bot
 La función de este bot es ser borde y envia cosas aleatorias, agresivas e insultos.
-##Autores
+## Autores
 Britza Zegarra Flores (la mente brillante del bot)  
 Patricia Maceiras Varela (se desentiede del bot)
 
