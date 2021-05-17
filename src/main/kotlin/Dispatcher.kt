@@ -1,12 +1,11 @@
 import com.github.kotlintelegrambot.bot
 import com.github.kotlintelegrambot.dispatch
-import com.github.kotlintelegrambot.dispatcher.callbackQuery
-import com.github.kotlintelegrambot.dispatcher.command
-import com.github.kotlintelegrambot.dispatcher.message
+import com.github.kotlintelegrambot.dispatcher.*
 import com.github.kotlintelegrambot.entities.ChatId
 import com.github.kotlintelegrambot.entities.InlineKeyboardMarkup
 import com.github.kotlintelegrambot.entities.ParseMode
 import com.github.kotlintelegrambot.entities.TelegramFile
+import com.github.kotlintelegrambot.entities.dice.DiceEmoji
 import com.github.kotlintelegrambot.entities.inputmedia.InputMediaPhoto
 import com.github.kotlintelegrambot.entities.inputmedia.MediaGroup
 import com.github.kotlintelegrambot.entities.keyboard.InlineKeyboardButton
@@ -166,7 +165,15 @@ fun main (){
                     parseMode = ParseMode.MARKDOWN_V2
                 )
             }
+            command("bolos") {
+                bot.sendDice(ChatId.fromId(message.chat.id), DiceEmoji.Bowling)
+            }
+
+            telegramError {
+                println(error.getErrorMessage())
+            }
         }
+
 
     }
     bot.startPolling()
