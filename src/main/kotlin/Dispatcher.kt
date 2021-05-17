@@ -11,18 +11,42 @@ import com.github.kotlintelegrambot.entities.inputmedia.MediaGroup
 import com.github.kotlintelegrambot.entities.keyboard.InlineKeyboardButton
 import com.github.kotlintelegrambot.extensions.filters.Filter
 import com.github.kotlintelegrambot.network.fold
-import java.lang.Compiler.command
 
 fun main (){
 
     val bot = bot {
 
-        token = Apikey.token
+        token = ApiKey.token
 
         dispatch {
 
             command("hola"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Buenos dias, pinche pendejo")
+                result.fold ({ },{ })
+
+            }
+            command("aviso") {
+                val result =
+                    bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Es importante que sepais que Patricia es la mejor")
+                result.fold({
+                    // do something here with the response
+                }, {
+                    // do something with the error
+                })
+            }
+            command("continuacion") {
+                val resutl = bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Ese dia patri si se cayo, se cayo en unas silvas, britza se bajo cas toda la botella")
+                resutl.fold({
+                    //do something with the error
+                })
+            }
+            command("F"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "F por mi culo")
+                result.fold ({ },{ })
+
+            }
+            command("pobre"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "por que estoy solo , no era que me queriais?")
                 result.fold ({ },{ })
 
             }
@@ -37,6 +61,11 @@ fun main (){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Eres un invesil XD")
                 result.fold({},{})
             }
+            command("insulto2"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Te insultaria pero ya tienes suficiente con despertarte todos los dias")
+                result.fold({},{})
+            }
+
 
             command("muricion"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Toma gancho y cuerda, si miras por la ventana ahí tienes un arbol")
@@ -69,6 +98,11 @@ fun main (){
             }
             message(Filter.Reply or Filter.Forward){
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "¿Eres invesil o te lo haces? ¿No has leido lo anterior?")
+
+
+            }
+            message(Filter.Reply or Filter.Forward){
+                bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "En fin, la hipotenusa")
 
 
             }
@@ -141,6 +175,32 @@ fun main (){
 
             telegramError {
                 println(error.getErrorMessage())
+            }
+
+
+            command("elBuenTrabajo") {
+                val markdownV2Text = """
+                  
+                 [inline URL](https://www.youtube.com/watch?v=LYIJF1IAdqY)
+               
+                """.trimIndent()
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = markdownV2Text,
+                    parseMode = ParseMode.MARKDOWN_V2
+                )
+            }
+            command("magia") {
+                val markdownV2Text = """
+                  
+                 [inline URL](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+               
+                """.trimIndent()
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = markdownV2Text,
+                    parseMode = ParseMode.MARKDOWN_V2
+                )
             }
         }
 
