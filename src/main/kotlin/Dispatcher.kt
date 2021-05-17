@@ -5,6 +5,10 @@ import com.github.kotlintelegrambot.dispatcher.command
 import com.github.kotlintelegrambot.dispatcher.message
 import com.github.kotlintelegrambot.entities.ChatId
 import com.github.kotlintelegrambot.entities.InlineKeyboardMarkup
+import com.github.kotlintelegrambot.entities.ParseMode
+import com.github.kotlintelegrambot.entities.TelegramFile
+import com.github.kotlintelegrambot.entities.inputmedia.InputMediaPhoto
+import com.github.kotlintelegrambot.entities.inputmedia.MediaGroup
 import com.github.kotlintelegrambot.entities.keyboard.InlineKeyboardButton
 import com.github.kotlintelegrambot.extensions.filters.Filter
 import com.github.kotlintelegrambot.network.fold
@@ -45,12 +49,45 @@ fun main (){
                 result.fold({},{})
             }
 
+            command("hector"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Te amo, cariño")
+                result.fold ({ },{ })
+
+            }
+
+
+
+            command("pendejos"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Os quiero desgraciados")
+                result.fold ({ },{ })
+
+            }
+
+            command("alcohol"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Patri vamonos a emborrachar con otro vermut")
+                result.fold ({ },{ })
+
+            }
+            command("viernesDeChiste"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Ese buen dia, decidieron ir a un monte, Patri y Britza a tomar un buen vermut" +
+                        " y el niño pequeño de kiskos un zumo. Pasado el tiempo y la botella de vermut vacia, Patri y Britza decidieron ir a mear, no fue una gran idea porque " +
+                        "Patri casi se cae y la podriamos haber perdido, pero no paso, lo maximo que paso fue 'perder' el paraguas por la culpa de la señora ")
+                result.fold ({ },{ })
+
+            }
+
 
             message(Filter.Reply or Filter.Forward){
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "No me respondas idiota, no ves que mi tiempo es valioso")
 
 
             }
+            message(Filter.Reply or Filter.Forward){
+                bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "¿Eres invesil o te lo haces? ¿No has leido lo anterior?")
+
+
+            }
+
 
             message (Filter.Sticker){
                 bot.sendMessage(ChatId.fromId(message.chat.id), text = "A ver amigo, que mierda de sticker me envias, ¿enserio me haces perder mi tiempo por esto?")
@@ -82,6 +119,53 @@ fun main (){
             ) {
                 val chatId = callbackQuery.message?.chat?.id ?: return@callbackQuery
                 bot.sendMessage(ChatId.fromId(chatId), callbackQuery.data)
+            }
+
+            command("PasaPack") {
+                bot.sendMediaGroup(
+                    chatId = ChatId.fromId(message.chat.id),
+                    mediaGroup = MediaGroup.from(
+                        InputMediaPhoto(
+                            media = TelegramFile.ByUrl("https://noescinetodoloquereluce.com/wp-content/uploads/2013/10/Jaime-Dor.jpg"),
+                            caption = "Dios ¡castigame, papasito!"
+                        ),
+                        InputMediaPhoto(
+                            media = TelegramFile.ByUrl("https://img.ecartelera.com/noticias/fotos/62700/62717/1.jpg"),
+                            caption = "Amamee, dame todoo"
+                        )
+                    ),
+                    replyToMessageId = message.messageId
+                )
+            }
+            command("comoNoHacerLimonada"){
+                val markdownV2Text = """
+
+                    [inline URL](https://www.youtube.com/watch?v=165VjNKRNdw)
+
+                """.trimIndent()
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = markdownV2Text,
+                    parseMode = ParseMode.MARKDOWN_V2
+                )
+            }
+            command("kiskos") {
+                bot.sendMediaGroup(
+                    chatId = ChatId.fromId(message.chat.id),
+                    mediaGroup = MediaGroup.from(
+
+                        InputMediaPhoto(
+                            media = TelegramFile.ByUrl("https://i.pinimg.com/originals/01/a5/96/01a5964307ad9d792a7a2db549eabdb9.png"),
+                            caption = "Kiskos vendra a tu casa"
+                        ),
+
+                        InputMediaPhoto(
+                            media = TelegramFile.ByUrl("https://i.ytimg.com/vi/zjvlzY98U-w/maxresdefault.jpg"),
+                            caption = "Así se pone cuando le hacen cosquillas"
+                        )
+                    ),
+                    replyToMessageId = message.messageId
+                )
             }
         }
 
