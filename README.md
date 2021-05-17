@@ -51,14 +51,14 @@ perdon por esto
 ## Polls
 Las polls son encuestas que permiten elegir opciones o contestar a preguntas. Existen dos tipos de encuestas, encuestas en 
 las que se le define una respuesta correcta y encuestas que permiten repuestas múltiples. En estas respuestas se ve el porcentaje
-de opciones seleccionadas y los usuarios que seleccionaron las opciones.
-Encuesta de opción correcta :
-![encuesta1](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/encuesta.PNG)
-![codigo](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/codigoencuesta.PNG)
-Encuesta de multiples opciones
-![encuesta2](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/encuesta1.PNG)
-![codigo1](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/codigoencuesta2.PNG)
-perdon por esto también...
+de opciones seleccionadas y los usuarios que seleccionaron las opciones.  
+Encuesta de opción correcta :    
+![encuesta1](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/encuesta.PNG)  
+![codigo](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/codigoencuesta.PNG)  
+Encuesta de multiples opciones  
+![encuesta2](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/encuesta1.PNG)  
+![codigo1](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/codigoencuesta2.PNG)  
+perdon por esto también...  
 
 ## Funcion del bot
 La función de este bot es ser borde y envia cosas aleatorias, agresivas e insultos.
