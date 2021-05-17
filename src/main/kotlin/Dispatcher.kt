@@ -48,11 +48,6 @@ fun main (){
                 result.fold({},{})
             }
 
-            command("hector"){
-                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Te amo, cariño")
-                result.fold ({ },{ })
-
-            }
 
             command("pendejos"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Os quiero desgraciados")
@@ -62,13 +57,6 @@ fun main (){
 
             command("alcohol"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Patri vamonos a emborrachar con otro vermut")
-                result.fold ({ },{ })
-
-            }
-            command("viernesDeChiste"){
-                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Ese buen dia, decidieron ir a un monte, Patri y Britza a tomar un buen vermut" +
-                        " y el niño pequeño de kiskos un zumo. Pasado el tiempo y la botella de vermut vacia, Patri y Britza decidieron ir a mear, no fue una gran idea porque " +
-                        "Patri casi se cae y la podriamos haber perdido, pero no paso, lo maximo que paso fue 'perder' el paraguas por la culpa de la señora ")
                 result.fold ({ },{ })
 
             }
@@ -135,24 +123,6 @@ fun main (){
                 )
             }
 
-            command("kiskos") {
-                bot.sendMediaGroup(
-                    chatId = ChatId.fromId(message.chat.id),
-                    mediaGroup = MediaGroup.from(
-
-                        InputMediaPhoto(
-                            media = TelegramFile.ByUrl("https://i.pinimg.com/originals/01/a5/96/01a5964307ad9d792a7a2db549eabdb9.png"),
-                            caption = "Kiskos vendra a tu casa"
-                        ),
-
-                        InputMediaPhoto(
-                            media = TelegramFile.ByUrl("https://i.ytimg.com/vi/zjvlzY98U-w/maxresdefault.jpg"),
-                            caption = "Así se pone cuando le hacen cosquillas"
-                        )
-                    ),
-                    replyToMessageId = message.messageId
-                )
-            }
             command("comoNoHacerLimonada"){
                 val markdownV2Text = """
 
