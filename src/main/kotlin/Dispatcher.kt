@@ -55,8 +55,6 @@ fun main (){
 
             }
 
-
-
             command("pendejos"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Os quiero desgraciados")
                 result.fold ({ },{ })
@@ -137,18 +135,7 @@ fun main (){
                     replyToMessageId = message.messageId
                 )
             }
-            command("comoNoHacerLimonada"){
-                val markdownV2Text = """
 
-                    [inline URL](https://www.youtube.com/watch?v=165VjNKRNdw)
-
-                """.trimIndent()
-                bot.sendMessage(
-                    chatId = ChatId.fromId(message.chat.id),
-                    text = markdownV2Text,
-                    parseMode = ParseMode.MARKDOWN_V2
-                )
-            }
             command("kiskos") {
                 bot.sendMediaGroup(
                     chatId = ChatId.fromId(message.chat.id),
@@ -165,6 +152,18 @@ fun main (){
                         )
                     ),
                     replyToMessageId = message.messageId
+                )
+            }
+            command("comoNoHacerLimonada"){
+                val markdownV2Text = """
+
+                    [inline URL](https://www.youtube.com/watch?v=165VjNKRNdw)
+
+                """.trimIndent()
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = markdownV2Text,
+                    parseMode = ParseMode.MARKDOWN_V2
                 )
             }
         }
