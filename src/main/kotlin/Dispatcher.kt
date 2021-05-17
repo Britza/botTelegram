@@ -16,7 +16,7 @@ fun main (){
 
     val bot = bot {
 
-        token = Apikey.token
+        token = ApiKey.token
 
         dispatch {
 
