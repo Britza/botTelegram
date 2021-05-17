@@ -41,6 +41,16 @@ fun main (){
                     //do something with the error
                 })
             }
+            command("F"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "F por mi culo")
+                result.fold ({ },{ })
+
+            }
+            command("pobre"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "por que estoy solo , no era que me queriais?")
+                result.fold ({ },{ })
+
+            }
 
             command("adios"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Adió pendejo")
@@ -103,6 +113,11 @@ fun main (){
             }
             message(Filter.Reply or Filter.Forward){
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "¿Eres invesil o te lo haces? ¿No has leido lo anterior?")
+
+
+            }
+            message(Filter.Reply or Filter.Forward){
+                bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "En fin, la hipotenusa")
 
 
             }
@@ -186,6 +201,7 @@ fun main (){
                     replyToMessageId = message.messageId
                 )
             }
+
 
             command("elBuenTrabajo") {
                 val markdownV2Text = """
