@@ -112,7 +112,7 @@ fun main (){
 
             callbackQuery(
                 callbackData = "¿UwU?",
-                callbackAnswerText = "Vamos,Se que quieres ",
+                callbackAnswerText = "Vamos ,Se que quieres ( ✧≖ ͜ʖ≖)",
                 callbackAnswerShowAlert = true
             ) {
                 val chatId = callbackQuery.message?.chat?.id ?: return@callbackQuery
