@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
         token =Apikey.token
         dispatch {
             command("start") {
-                val result = bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "El mejor bot se ha iniciado")
+                val result = bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = " El mejor bot se ha iniciado ")
                 result.fold({
                     // do something here with the response
                 },{
