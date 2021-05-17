@@ -9,13 +9,14 @@ import com.github.kotlintelegrambot.entities.polls.PollType
 fun main() {
     val bot = bot {
 
-        token = ApiKey.token
+        token = Apikey.token
 
         dispatch {
+            //Devuelve el usuario que ha seleccionado una opcion en la encuesta
             pollAnswer {
                 println("${pollAnswer.user.username} has selected the option ${pollAnswer.optionIds.lastOrNull()} in the poll ${pollAnswer.pollId}")
             }
-
+            //Comando que muestra la encuesta, esta solo permite elegir una opcion y tiene una solucion
             command("encuesta") {
 
                 bot.sendPoll(
@@ -27,6 +28,8 @@ fun main() {
                     isAnonymous = false
                 )
             }
+            //Comando que muestra la encuesta, esta solo permite elegir una opcion y tiene una solucion
+
             command("encuestameEsta") {
 
                 bot.sendPoll(
@@ -38,6 +41,8 @@ fun main() {
                     isAnonymous = false
                 )
             }
+            //Comando que muestra la encuesta, multiples respuestas a escojer y no tiene una solucion
+
             command("encuesta2") {
                 bot.sendPoll(
                     chatId = ChatId.fromId(message.chat.id),

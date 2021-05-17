@@ -16,15 +16,21 @@ fun main (){
 
     val bot = bot {
 
-        token = ApiKey.token
+        token = Apikey.token
 
         dispatch {
 
+            /**
+             * Método que recibe un y devuelve el siguiente mensaje
+             */
             command("hola"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Buenos dias, pinche pendejo")
                 result.fold ({ },{ })
 
             }
+            /**
+             * Método que recibe un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
             command("aviso") {
                 val result =
                     bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Es importante que sepais que Patricia es la mejor")
@@ -34,55 +40,82 @@ fun main (){
                     // do something with the error
                 })
             }
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram un y devuelve el siguiente mensaje
+             */
             command("continuacion") {
                 val resutl = bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Ese dia patri si se cayo, se cayo en unas silvas, britza se bajo cas toda la botella")
                 resutl.fold({
                     //do something with the error
                 })
             }
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
             command("F"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "F por mi culo")
                 result.fold ({ },{ })
 
             }
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
             command("pobre"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "por que estoy solo , no era que me queriais?")
                 result.fold ({ },{ })
 
             }
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
 
             command("adios"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Adió pendejo")
                 result.fold ({  },{ }
                 )
             }
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
 
             command("insulto"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Eres un invesil XD")
                 result.fold({},{})
             }
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
             command("insulto2"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Te insultaria pero ya tienes suficiente con despertarte todos los dias")
                 result.fold({},{})
             }
 
-
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
             command("muricion"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Toma gancho y cuerda, si miras por la ventana ahí tienes un arbol")
                 result.fold({},{})
             }
-
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
             command("deprimision"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Si quieres llorar, tienes puerta abierta a la llorecry")
                 result.fold({},{})
             }
 
-
+            /**
+             * Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
             command("pendejos"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Os quiero desgraciados")
                 result.fold ({ },{ })
 
             }
+            /**
+             *Método que recibe  un texto que sera el comando a utlizar en teleram y devuelve el siguiente mensaje
+             */
 
             command("alcohol"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Patri vamonos a emborrachar con otro vermut")
@@ -90,31 +123,43 @@ fun main (){
 
             }
 
-
+            /**
+             * Método que envia un mensaje si respondes en telegram al mensaje enviado por el bot
+             */
             message(Filter.Reply or Filter.Forward){
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "No me respondas idiota, no ves que mi tiempo es valioso")
 
 
             }
+            /**
+             * Método que envia un mensaje si respondes en telegram al mensaje enviado por el bot
+             */
             message(Filter.Reply or Filter.Forward){
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "¿Eres invesil o te lo haces? ¿No has leido lo anterior?")
 
 
             }
+            /**
+             * Método que envia un mensaje si respondes en telegram al mensaje enviado por el bot
+             */
             message(Filter.Reply or Filter.Forward){
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "En fin, la hipotenusa")
 
 
             }
 
-
+            /**
+             * Método que envia un mensaje si enias un sticker por telegram
+             */
             message (Filter.Sticker){
                 bot.sendMessage(ChatId.fromId(message.chat.id), text = "A ver amigo, que mierda de sticker me envias, ¿enserio me haces perder mi tiempo por esto?")
             }
-
+            /**
+             * Método que crea dos botones con los que interactuar.
+             */
             command("elige"){
                 val inlineKeyboardMarkup = InlineKeyboardMarkup.create(
-
+                    //CallbackData devuelve un texto al presionar el boton,
                     listOf(InlineKeyboardButton.CallbackData(text ="Tocame ", callbackData = "Picantee ( ͡° ͜ʖ ͡°)")),
                     listOf(InlineKeyboardButton.CallbackData(text = "Pinchame",callbackData = "¿UwU?"))
 
@@ -125,11 +170,17 @@ fun main (){
                     replyMarkup = inlineKeyboardMarkup
                 )
             }
+            /**
+             * Es el texto que aparece asociado del boton command elige
+             */
 
             callbackQuery("Picantee ( ͡° ͜ʖ ͡°)") {
                 val chatId = callbackQuery.message?.chat?.id ?: return@callbackQuery
                 bot.sendMessage(ChatId.fromId(chatId), callbackQuery.data)
             }
+            /**
+             * Es el texto que aparece asociado del boton command elige
+             */
 
             callbackQuery(
                 callbackData = "¿UwU?",
@@ -139,7 +190,9 @@ fun main (){
                 val chatId = callbackQuery.message?.chat?.id ?: return@callbackQuery
                 bot.sendMessage(ChatId.fromId(chatId), callbackQuery.data)
             }
-
+            /**
+             * Envia las fotos de las url puestas en media y les añade el texto escrito en caption
+             */
             command("PasaPack") {
                 bot.sendMediaGroup(
                     chatId = ChatId.fromId(message.chat.id),
@@ -157,6 +210,9 @@ fun main (){
                 )
             }
 
+            /**
+             * envia el video de la url pasada
+             */
             command("comoNoHacerLimonada"){
                 val markdownV2Text = """
 
@@ -169,15 +225,23 @@ fun main (){
                     parseMode = ParseMode.MARKDOWN_V2
                 )
             }
+            /**
+             * envia un emoji de un bolo
+             */
             command("bolos") {
                 bot.sendDice(ChatId.fromId(message.chat.id), DiceEmoji.Bowling)
             }
 
+            /**
+             * Texto de error de telgram
+             */
             telegramError {
                 println(error.getErrorMessage())
             }
 
-
+            /**
+             * envia el video de la url pasada
+             */
             command("elBuenTrabajo") {
                 val markdownV2Text = """
                   
@@ -190,6 +254,9 @@ fun main (){
                     parseMode = ParseMode.MARKDOWN_V2
                 )
             }
+            /**
+             * envia el video de la url pasada
+             */
             command("magia") {
                 val markdownV2Text = """
                   
