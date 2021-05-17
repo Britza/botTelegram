@@ -269,6 +269,44 @@ fun main (){
                     parseMode = ParseMode.MARKDOWN_V2
                 )
             }
+            /**
+             * Altera el texto sin necesidad de un editor de texto. Solo sirve para texto incluido en el comando
+             * */
+            command("markdown") {
+                val markdownText = "Mi gran mensaje: Markdown es util a su manera"
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = markdownText,
+                    parseMode = ParseMode.MARKDOWN
+                )
+            }
+            /**
+             * Version mejorada del marckdown. Lo de la mencion del usuario aun no funciona ni en la libreria de kotlinTelegram
+             */
+            command("markdown2") {
+                val markdownV2Text = """
+                    negrita
+                    italic
+                    subrallado
+                    ~tachado~
+                    negrita italic negrita ~italic negrita tachada~ subrallado italic negrita negrita
+                    [Nuestro bot](https://github.com/Britza/botTelegram)
+                    [inline mention of a user](tg://user?id=123456789) 
+                    inline fixed-width code
+                    
+                    fun main() {
+                        println("Hello Kotlin!")
+                    }
+                    
+
+                """.trimIndent()
+
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = markdownV2Text,
+                    parseMode = ParseMode.MARKDOWN_V2
+                )
+            }
         }
 
 
