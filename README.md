@@ -34,7 +34,7 @@ La función del dispatcher es mantenerse a la escucha en todas las ventanas de c
 
             }
  ```
-![Dispatcher](https://github.com/Britza/botTelegram/blob/master/src/main/imagenes/dispatcher.PNG)
+
 
 Ejemplos :
 
