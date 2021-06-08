@@ -1,3 +1,0 @@
-object Apikey {
-    val token=""
-}
